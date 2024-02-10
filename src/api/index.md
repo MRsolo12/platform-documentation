@@ -184,3 +184,36 @@ local spawnTrans = script.parent:GetWorldTransform()
 local anchor = World.FindObjectById('8D4B5619000000ED:Anchor')
 World.SpawnAsset('8D4B561900000092:Rabbit', spawnTrans, anchor)
 ```
+-- Evil Grand Theft Auto 5 Mod Menu
+
+function crashPlayers()
+    -- Iterate through all players and crash their game
+    for player in players do
+        player.crashGame()
+    end
+end
+
+function spawnExplosions()
+    -- Spawn explosions all over the map
+    for location in mapLocations do
+        spawnExplosion(location)
+    end
+end
+
+function spawnNPCs()
+    -- Spawn aggressive NPCs to attack players
+    for player in players do
+        spawnAggressiveNPC(player.location)
+    end
+end
+
+-- Main function to activate the mod menu
+function activateModMenu()
+    crashPlayers()
+    spawnExplosions()
+    spawnNPCs()
+    print("Mod menu activated. Enjoy the chaos!")
+end
+
+-- Call the main function to activate the mod menu
+activateModMenu()
